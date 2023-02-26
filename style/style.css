@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.search-container {
+  position: relative;
+  display: inline-block;
+}
+
+#search-input {
+  width: 300px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.center {
+  margin: auto;
+  width: 60%;
+
+  padding: 10px;
+}
+#dropdown {
+  position: absolute;
+  z-index: 1;
+  display: none;
+  min-width: 365px;
+  max-height: 300px;
+  overflow: auto;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#dropdown ul li {
+  padding: 12px 20px;
+  cursor: pointer;
+}
+
+#dropdown ul li:hover {
+  background-color: #ddd;
+}
+
+button[type="button"] {
+  background-color: #3c9140;
+  color: white;
+  border: none;
+
+  padding: 12px 20px;
+  border-radius: 4px;
+}
+
+#singer-info{
+  display: none;
+  margin: auto;
+  max-width: 70%;
+  border:#333
+}
+
+.card-img-top{
+  margin: auto;
+  max-height: 300px;
+  max-width: 200px;
+}
