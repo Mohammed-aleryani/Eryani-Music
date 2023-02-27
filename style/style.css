@@ -1,24 +1,30 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a:hover {
+  color: #3c9140 !important;
+}
+
+h1 {
+  font-size: 24px;
 }
 
 body {
-  margin: 0;
   font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
   background-color: #333;
   color: #fff;
   padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-h1 {
-  margin: 0;
-  font-size: 24px;
+  align-items: center;
 }
 
 .search-container {
@@ -77,15 +83,37 @@ button[type="button"] {
   border-radius: 4px;
 }
 
-#singer-info{
+#singer-info {
   display: none;
   margin: auto;
   max-width: 70%;
-  border:#333
+  border: #333;
 }
 
-.card-img-top{
+.card-img-top {
   margin: auto;
   max-height: 300px;
   max-width: 200px;
+}
+
+footer {
+  margin-top: auto;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  .header-contant {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav {
+    text-align: center;
+    display: block;
+    flex-direction: column;
+  }
 }

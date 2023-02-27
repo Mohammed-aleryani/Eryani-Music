@@ -80,16 +80,16 @@ const getSingerInfo = async (name) => {
 };
 
 const renderInfo = (info) => {
-  let singerInfo=document.getElementById('singer-info');
-  let img=document.getElementsByClassName('card-img-top')[0];
-  let cardTitle=document.getElementsByClassName('card-title')[0];
-  let cardText=document.getElementsByClassName('card-text')[0];
-  let seeMore=document.getElementById('see-more')
-  singerInfo.style.display='block';
-  img.src=info['artist']['image'][2]['#text'];
-  cardTitle.innerHTML=info['artist']['name'];
-  cardText.innerHTML=info['artist']['bio']['content']
-  seeMore.href=info['artist']['url']
+  let singerInfo = document.getElementById("singer-info");
+  let img = document.getElementsByClassName("card-img-top")[0];
+  let cardTitle = document.getElementsByClassName("card-title")[0];
+  let cardText = document.getElementsByClassName("card-text")[0];
+  let seeMore = document.getElementById("see-more");
+  singerInfo.style.display = "block";
+  img.src = info["artist"]["image"][2]["#text"];
+  cardTitle.innerHTML = info["artist"]["name"];
+  cardText.innerHTML = info["artist"]["bio"]["content"];
+  seeMore.href = info["artist"]["url"];
 };
 
 window.onload = () => {
