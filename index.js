@@ -1,4 +1,5 @@
 const api_key = "api_key=d7342cf1c3cd80aa741d0f7486a48845";
+const api_key2 = "xqHRhT3lnPCiMe-Mr_tInWpm469C_-JJDc7kjP52ypg";
 const dropDown = document.getElementById("dropdown");
 const ul = document.querySelector("#search-results");
 let searchTimeoutToken = 0;
@@ -33,15 +34,20 @@ const renderResult = (data) => {
 
 const renderInfo = (info) => {
   let singerInfo = document.getElementById("singer-info");
-  let img = document.getElementsByClassName("card-img-top")[0];
+  // let img = document.getElementsByClassName("card-img-top")[0];
   let cardTitle = document.getElementsByClassName("card-title")[0];
   let cardText = document.getElementsByClassName("card-text")[0];
   let seeMore = document.getElementById("see-more");
   singerInfo.style.display = "block";
-  img.src = info["artist"]["image"][2]["#text"];
+  // img.src = info["artist"]["image"][2]["#text"];
   cardTitle.innerHTML = info["artist"]["name"];
   cardText.innerHTML = info["artist"]["bio"]["content"];
   seeMore.href = info["artist"]["url"];
+};
+
+const renderPhoto = (photo_url) => {
+  let img = document.getElementsByClassName("card-img-top")[0];
+  img.src = photo_url;
 };
 
 const renderError = (error) => {
@@ -85,6 +91,11 @@ const getSingerInfo = async (name) => {
   renderInfo(info);
 };
 
+const getSingerPhoto = async (name) => {
+  let url = `https://api.unsplash.com/search/photos?client_id=${api_key2}&page=1&query=${name}`;
+  let photo = await fetchData(url);
+  renderPhoto(photo["results"][0]["urls"]["small"]);
+};
 window.onload = () => {
   searchResult();
 };
@@ -92,5 +103,6 @@ window.onload = () => {
 ul.addEventListener("click", function (e) {
   if (e.target) {
     getSingerInfo(e.target.innerHTML);
+    getSingerPhoto(e.target.innerHTML);
   }
 });
