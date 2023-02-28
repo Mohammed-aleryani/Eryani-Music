@@ -1,7 +1,7 @@
 const api_key = "api_key=d7342cf1c3cd80aa741d0f7486a48845";
-const searchResults = document.getElementById("search-results");
 const dropDown = document.getElementById("dropdown");
 const ul = document.querySelector("#search-results");
+let searchTimeoutToken = 0;
 
 const fetchData = async (url) => {
   try {
@@ -11,8 +11,6 @@ const fetchData = async (url) => {
     }
     return await response.json();
   } catch (error) {
-    // console.error(`This is ${error}`);
-    console.log("The first catch block executed");
     return error;
   }
 };
@@ -33,17 +31,27 @@ const renderResult = (data) => {
   }
 };
 
+const renderInfo = (info) => {
+  let singerInfo = document.getElementById("singer-info");
+  let img = document.getElementsByClassName("card-img-top")[0];
+  let cardTitle = document.getElementsByClassName("card-title")[0];
+  let cardText = document.getElementsByClassName("card-text")[0];
+  let seeMore = document.getElementById("see-more");
+  singerInfo.style.display = "block";
+  img.src = info["artist"]["image"][2]["#text"];
+  cardTitle.innerHTML = info["artist"]["name"];
+  cardText.innerHTML = info["artist"]["bio"]["content"];
+  seeMore.href = info["artist"]["url"];
+};
+
 const renderError = (error) => {
   dropDown.style.display = "block";
-  console.log(error + "dfasfd");
   let item = document.createElement("li");
   item.innerHTML = `${error}`;
   ul.appendChild(item);
 };
 
-let searchTimeoutToken = 0;
-
-const getResults = () => {
+const searchResult = () => {
   const searchFieldElement = document.getElementById("search-input");
   searchFieldElement.onkeyup = (e) => {
     ul.innerHTML = "";
@@ -61,7 +69,6 @@ const getResults = () => {
       if (data["results"]) {
         renderResult(data);
       } else {
-        console.log(data);
         renderError(data);
       }
     }, 500);
@@ -75,30 +82,15 @@ const getSingerInfo = async (name) => {
     name
   )}&${api_key}&format=json`;
   let info = await fetchData(url);
-  console.log(info);
   renderInfo(info);
 };
 
-const renderInfo = (info) => {
-  let singerInfo = document.getElementById("singer-info");
-  let img = document.getElementsByClassName("card-img-top")[0];
-  let cardTitle = document.getElementsByClassName("card-title")[0];
-  let cardText = document.getElementsByClassName("card-text")[0];
-  let seeMore = document.getElementById("see-more");
-  singerInfo.style.display = "block";
-  img.src = info["artist"]["image"][2]["#text"];
-  cardTitle.innerHTML = info["artist"]["name"];
-  cardText.innerHTML = info["artist"]["bio"]["content"];
-  seeMore.href = info["artist"]["url"];
-};
-
 window.onload = () => {
-  getResults();
+  searchResult();
 };
 
 ul.addEventListener("click", function (e) {
   if (e.target) {
-    console.log(e.target.innerHTML);
     getSingerInfo(e.target.innerHTML);
   }
 });
