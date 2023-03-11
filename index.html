@@ -20,10 +20,10 @@
         <h1>Eryani Music <i class="bi bi-music-note-beamed"></i></h1>
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link text-light" href="#">Home</a>
+            <a class="nav-link text-light" href="#home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="#">About us</a>
+            <a class="nav-link text-light" href="#about">About us</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-light" href="#">Sign in</a>
@@ -31,7 +31,7 @@
         </ul>
       </div>
     </div>
-    <main class="container mb-3">
+    <main id="home" class="container mb-3">
       <div class="center text-center">
         <div class="search-container">
           <form>
@@ -40,9 +40,11 @@
                 <i class="bi bi-music-note-beamed"></i>
               </button>
               <input
-                type="text"
+                type="search"
                 id="search-input"
-                placeholder="Search for a singer"
+                placeholder="Search for a singer" 
+                autocomplete="off"
+                aut
               />
             </div>
             <div id="dropdown">
@@ -70,7 +72,7 @@
 
     <footer>
       <div class="container footer-container text-center w-75 pt-3">
-        <h5>About Us</h5>
+        <h5 id ='about'>About Us</h5>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel,
           architecto beatae veniam doloribus, molestias veritatis ratione animi
@@ -78,9 +80,9 @@
           explicabo non placeat.
         </p>
 
-        <a class="text-light" href="#"><i class="bi bi-facebook"></i></a>
-        <a class="text-light" href="#"><i class="bi bi-twitter"></i></a>
-        <a class="text-light" href="#"><i class="bi bi-envelope-at"></i></a>
+        <a class="text-light" href="https://www.facebook.com/mohamed.aleryani.7" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a class="text-light" href="https://www.linkedin.com/in/mohammed-al-eryani-036693189/" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <a class="text-light" href="mailto:mym.aleryani@gmail.com"><i class="bi bi-envelope-at"></i></a>
         <small class="d-block">Copyright &copy; 2023</small>
       </div>
     </footer>

@@ -50,7 +50,7 @@ body {
   position: absolute;
   z-index: 1;
   display: none;
-  min-width: 365px;
+  max-width:360px;
   max-height: 300px;
   overflow: auto;
   background-color: #f1f1f1;
@@ -60,11 +60,15 @@ body {
 
 #dropdown ul {
   list-style: none;
+  padding: 0;
+
 }
 
 #dropdown ul li {
   padding: 12px 20px;
   cursor: pointer;
+  min-width: 365px;
+
 }
 
 #dropdown ul li:hover {
